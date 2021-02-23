@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>新規登録</title>
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="css/register.css">
+
+</head>
+
+<body>
+  <div class="body"></div>
+  <div class="header">
+    <div class="sitelogo"><img src="images/HEADGEAR.png" alt="sitelogo"></div>
+  </div>
+  <br>
+  <div class="login">
+    <form action="registerok.html" id="form">
+      
+      <input type="text" placeholder="username" name="user"><br>
+      <input type="password" placeholder="password" name="password"><br>
+      <input type="password" placeholder="password(確認用)" name="passwordcheck"><br>
+      <input type="email" placeholder="email" name="mail"><br>
+      <input type="tel" placeholder="tel(任意)" name="tel">
+      <input type="submit" value="Login" onclick="return checkForm()" oninput="CheckPassword(this)" required><br>
+      
+      
+      
+      <div id="output"></div>
+    </form>
+  </div>
+
+  <script>
+    'use strict';
+    function checkForm() {
+      const user = document.getElementById('form').user.value;
+      const password = document.getElementById('form').password.value;
+      const passwordcheck = document.getElementById('form').passwordcheck.value;
+      const mail = document.getElementById('form').mail.value;
+      if (user == "" || password == "" || passwordcheck == "" || mail == "") {
+        document.getElementById('output').textContent = '必須項目を入力してください'
+        return false;
+      } if (password != passwordcheck) {
+        document.getElementById('output').textContent = 'パスワードが一致しません'
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+
+    // document.getElementById('form').onsubmit = function (event) {
+    //   event.preventDefault();
+    //   const search = document.getElementById('form').user.value;
+    //   const search1 = document.getElementById('form').password.value;
+    //   const search2 = document.getElementById('form').passwordcheck.value;
+    //   const search3 = document.getElementById('form').mail.value;
+    //   const search4 = document.getElementById('form').tel.value;
+    //   document.getElementById('output').textContent = 'loginが完了しました';
+    // };
+    
+  </script>
+</body>
+
+</html>
